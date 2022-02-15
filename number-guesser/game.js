@@ -1,5 +1,7 @@
 let target;
 
+
+// get the elements from IDs
 const humanGuessInput = document.getElementById('human-guess');
 
 const roundNumberDisplay = document.getElementById('round-number');
@@ -13,42 +15,59 @@ const computerWinsDisplay = document.getElementById('computer-wins');
 const guessButton = document.getElementById('guess');
 const nextRoundButton = document.getElementById('next-round')
 
-guessButton.addEventListener('click', () => {
-  // Generate the target value
-  target = generateTarget();
-  // Retrieve the player's guess
-  const currentHumanGuess = humanGuessInput.value;
-  // Make a random 'computer guess'
-  const computerGuess = Math.floor(Math.random() * 10);
-
-  // Display the computer guess and the target
-  computerGuessDisplay.innerText = computerGuess;
-  targetNumberDisplay.innerText = target;
-  
-  // Determine if the human or computer wins:
-  const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target)
-  const winner = humanIsWinner ? 'human' : 'computer'
-
-  // Update the correct score:
-  updateScore(winner);
-
-  // Display the winner
-  if (humanIsWinner) {
-    guessButton.innerText = 'You Win!!!!!';
-    guessButton.classList.toggle('winning-text')
+// a function to verify human-guess input
+const verifyHumanInput = input => {
+  if(input.value >= 0 && input.value <= 9) {
+    return true; // return false so we can continue
   } else {
-    computerWinsDisplay.innerText = 'Computer Wins!!!';
+    alert('Please input a number between 0-9.');
+    return false;
   }
+};
 
-  // winnerDisplay.innerText = humanIsWinner ? 'You win!' : 'Computer wins!';
+// guessButton
+guessButton.addEventListener('click', () => {
+  // execute this only the number is between 0-9 (incl.)
+  if(verifyHumanInput(humanGuessInput)) {
 
-  // Display the current scores:
-  humanScoreDisplay.innerText = humanScore;
-  computerScoreDisplay.innerText = computerScore;
-  
-  // Set the correct disabled state for the buttons
-  guessButton.setAttribute('disabled', true)
-  nextRoundButton.removeAttribute('disabled');
+    // Generate the target value
+    target = generateTarget();
+    // Retrieve the player's guess
+    const currentHumanGuess = humanGuessInput.value;
+    // Make a random 'computer guess'
+    const computerGuess = Math.floor(Math.random() * 10);
+
+    // Display the computer guess and the target
+    computerGuessDisplay.innerText = computerGuess;
+    targetNumberDisplay.innerText = target;
+    
+    // Determine if the human or computer wins:
+    const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target)
+    const winner = humanIsWinner ? 'human' : 'computer'
+
+    // Update the correct score:
+    updateScore(winner);
+
+    // Display the winner
+    if (humanIsWinner) {
+      guessButton.innerText = 'You Win!!!!!';
+      guessButton.classList.toggle('winning-text')
+    } else {
+      computerWinsDisplay.innerText = 'Computer Wins!!!';
+    }
+
+    // winnerDisplay.innerText = humanIsWinner ? 'You win!' : 'Computer wins!';
+
+    // Display the current scores:
+    humanScoreDisplay.innerText = humanScore;
+    computerScoreDisplay.innerText = computerScore;
+    
+    // Set the correct disabled state for the buttons
+    guessButton.setAttribute('disabled', true)
+    nextRoundButton.removeAttribute('disabled');
+    }
+
+
 });
 
 nextRoundButton.addEventListener('click', () => {
