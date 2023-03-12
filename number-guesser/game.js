@@ -13,11 +13,11 @@ const targetNumberDisplay = document.getElementById('target-number');
 const computerWinsDisplay = document.getElementById('computer-wins');
 
 const guessButton = document.getElementById('guess');
-const nextRoundButton = document.getElementById('next-round')
+const nextRoundButton = document.getElementById('next-round');
 
 // a function to verify human-guess input
 const verifyHumanInput = input => {
-  if(input.value >= 0 && input.value <= 9) {
+  if (input.value >= 0 && input.value <= 9) {
     return true; // return false so we can continue
   } else {
     alert('Please input a number between 0-9.');
@@ -28,7 +28,7 @@ const verifyHumanInput = input => {
 // guessButton
 guessButton.addEventListener('click', () => {
   // execute this only the number is between 0-9 (incl.)
-  if(verifyHumanInput(humanGuessInput)) {
+  if (verifyHumanInput(humanGuessInput)) {
 
     // Generate the target value
     target = generateTarget();
@@ -42,8 +42,8 @@ guessButton.addEventListener('click', () => {
     targetNumberDisplay.innerText = target;
     
     // Determine if the human or computer wins:
-    const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target)
-    const winner = humanIsWinner ? 'human' : 'computer'
+    const humanIsWinner = compareGuesses(currentHumanGuess, computerGuess, target);
+    const winner = humanIsWinner ? 'human' : 'computer';
 
     // Update the correct score:
     updateScore(winner);
@@ -51,7 +51,7 @@ guessButton.addEventListener('click', () => {
     // Display the winner
     if (humanIsWinner) {
       guessButton.innerText = 'You Win!!!!!';
-      guessButton.classList.toggle('winning-text')
+      guessButton.classList.toggle('winning-text');
     } else {
       computerWinsDisplay.innerText = 'Computer Wins!!!';
     }
@@ -63,7 +63,7 @@ guessButton.addEventListener('click', () => {
     computerScoreDisplay.innerText = computerScore;
     
     // Set the correct disabled state for the buttons
-    guessButton.setAttribute('disabled', true)
+    guessButton.setAttribute('disabled', true);
     nextRoundButton.removeAttribute('disabled');
     }
 
@@ -113,6 +113,6 @@ const handleValueChange = value => {
   }
 }
 
-humanGuessInput.addEventListener('input', function(e) {
+humanGuessInput.addEventListener('input', (e) => {
   handleValueChange(e.target.value);
 });

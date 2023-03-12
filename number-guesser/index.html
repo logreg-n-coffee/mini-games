@@ -1,7 +1,8 @@
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>Number Guesser</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
@@ -31,10 +32,11 @@
             <p class="guess-label">You</p>
             <p class="score-label">Score: <span id="human-score">0</span></p>
           </div>
-          <input type="number" id="human-guess" min=0 max=9 value=0>
+          <label>Input your guess</label>
+          <input type="number" id="human-guess" min=0 max=9 value=0 placeholder=0>
           <div class="number-controls">
-            <button class="number-control left" id="subtract" disabled>-</button>
-            <button class="number-control right" id="add">+</button>
+            <button type="button" class="number-control left" id="subtract" disabled>-</button>
+            <button type="button" class="number-control right" id="add">+</button>
           </div>
           <button class="button" id="guess">Make a Guess</button>
         </div>
