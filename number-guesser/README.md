@@ -1,30 +1,24 @@
-# Number Guesser 
+# Number Guesser
 
-## Description 
-This is an implementation of the challege project on Codeacademy.com. To play, please visit https://hiruihu.com/number-guesser
+## Description
 
-## How to Play 
+It is coded in vanilla JavaScript. This is an implementation of the challege project on Codeacademy.com. To play, please visit [https://hiruihu.com/mini-games/number-guesser](https://hiruihu.com/mini-games/number-guesser)
 
-### Step 1:
+## How to Play
 
 Input a number between 0 and 9
-
-### Step 2:
-
 Click "Make a Guess" to submit your guess and see who won the round.
-
-### Step 3:
-
 Click "Next Round" to play again.
 
-## Repository Structure 
+## Repository Structure
 
-It contains four files: 
+It contains 4 files:
 
  1. script.js
  2. game.js
- 3. index.html 
+ 3. index.html
  4. style.css
 
 ## Known Bug
-The number in the input box can exceed 10. 
+
+The number in the input box can exceed 10.
