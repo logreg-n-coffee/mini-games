@@ -1,6 +1,6 @@
 # Mini Games
 
-Welcome to the Mini Games repository! This repository contains three exciting games that you can play right away.
+Welcome to the Mini Games repository! This repository contains exciting games that you can play right away.
 
 ## Getting Started
 
